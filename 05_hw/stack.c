@@ -30,8 +30,13 @@ void push(Stack* stack, int data) {
 }
 
 void pop(Stack* stack) {
+    if (stack->top == NULL) {
+           printf("Stack is empty, cannot pop.\n");
+           return;
+       }
     Node* temp = stack->top;
     stack->top = stack->top->next;
+    free(temp);
 }
 
 Node* searchByValue(Stack* stack, int value) {
